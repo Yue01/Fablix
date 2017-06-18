@@ -2,7 +2,7 @@
 <hr>
 <h3>Fablix is a movie browsing site that allows searching and browsing of movies by title, star name, year, director, and date.</h3>
 <hr>
-<h4>Our team consists of 3 members: Raymond Sy (UI/UX Advisor), Jonathan Law (Project Manager), and Aaron Aung (Lead Programmer/Designer)</h4>
+<h4>Our team consists of 3 members: Raymond Sy (UI/UX Designer), Jonathan Law (Project Manager), and Aaron Aung (Lead Programmer)</h4>
 <h4>The site is developed with HTML, Bootstrap, Javascript, jQuery, and Ajax as frontend tools and Java and MySQL as a backend tools.</h4>
 <hr>
 <h3>
