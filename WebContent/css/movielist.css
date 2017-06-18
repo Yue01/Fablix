@@ -1,0 +1,31 @@
+.list-group-item{
+	font-size: 100%;
+	padding: 5.4%;
+}
+
+.popover{
+	max-width: 400px;
+}
+.modal-body{
+	max-height: 420px;
+	overflow-y: scroll;
+}
+
+#headerText{
+	font-family: 'Kaushan Script', cursive;
+	font-size: 40px;
+	margin: 3%;
+	font-weight: 400;
+	color:#3771a2;
+}
+#header{
+	margin: 3%;
+}
+body{
+	background: #fcffff;	
+}
+.modal-open{
+	padding: 0 !important;
+	margin: 0 !important;
+	overflow: visible;
+}
