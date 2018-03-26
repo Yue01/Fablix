@@ -60,12 +60,12 @@
 -------------------------
 ## Project 5
 ### Checklist:
-#### *The report file "Project 5 report.docx" is located in https://github.com/UCI-Chenli-teaching/cs122b-winter18-team-44/blob/master/Other_file/Project%205%20report.docx
-* 1. All log files are under https://github.com/UCI-Chenli-teaching/cs122b-winter18-team-44/tree/master/Other_file/testdata
+#### *The report file "Project 5 report.docx" is located in https://github.com/Yue01/Fablix/blob/master/Other_file/Project%205%20report.docx
+* 1. All log files are under https://github.com/Yue01/Fablix/tree/master/Other_file/testdata
 * 2. test.py under Other_files is used to process log files to calculate the average TS and TJ. Please modify the input filename accordingly:
-![](https://github.com/UCI-Chenli-teaching/cs122b-winter18-team-44/blob/master/WebContent/ex1.png)
+![](https://github.com/Yue01/Fablix/blob/master/WebContent/ex1.png)
 * 3.Please also note to modify one judgement sentence from "T" to "T:" for test1_2.txt,test2_1_master.txt and test2_1_slave.txt:
-![](https://github.com/UCI-Chenli-teaching/cs122b-winter18-team-44/blob/master/WebContent/ex3.png)
+![](https://github.com/Yue01/Fablix/blob/master/WebContent/ex2.png)
 * 4.The console should show the TS and TJ for each query line by line and show the avg TS and TJ at bottom:
-![](https://github.com/UCI-Chenli-teaching/cs122b-winter18-team-44/blob/master/WebContent/ex2.png)
+![](https://github.com/Yue01/Fablix/blob/master/WebContent/ex3.png)
 * 5. We rearrange the items shown in HTML files. Please read the titles carefully and it may not be compliant with the original format:)
