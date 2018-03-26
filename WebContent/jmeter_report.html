@@ -1,7 +1,6 @@
  <!DOCTYPE html>
 <html>
 <head>
-
 <style>
 body {
     background-color: linen;
@@ -18,51 +17,50 @@ td {
   <tr style="font-weight:bold; background-color: orange">
     <td width="300px">Single-instance version cases</td>
     <td>Graph Results Screenshot</td>
-    <td>Average Query Time(ms)</td>
-    <td>Average Search Servlet Time(ms)</td>
-    <td>Average JDBC Time(ms)</td>
+    <td>Average Query Time(ms/From Jmeter)</td>
+    <td>Average Search Servlet Time(ns)</td>
+    <td>Average JDBC Time(ns)</td>
     <td>Analysis</td>
   </tr>
   <tr>
-    <td>Case 1: HTTP/1 thread</td>
-    <td><img src="jmeter/graphs/graph_1.png" alt="Graph Results Screenshot Case 1" style="width:304px;height:228px;"></td>
-    <td>39 ms</td>
-    <td>0.575855 ms</td>
-    <td>0.546925 ms</td>
-    <td>Running the queries using a single thread with connection pooling and preparedstatement is relatively fast compared to other cases. Because there's way less overhead in concurrent data access and http request.</td>
+    <td>Case 1: HTTP/10 threads without preparedStatement</td>
+    <td><img src="pic1.png" alt="pic1" style="width:304px;height:228px;"></td>
+    <td>6</td>
+    <td>1489921.53942</td>
+    <td>1406460.65845</td>
+    <td>10 threads without preparedStatement</td>
   </tr>
   <tr>
-    <td>Case 2: HTTP/10 threads</td>
-    <td><img src="jmeter/graphs/graph_2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
-    <td>121 ms</td>
-    <td>0.851123 ms</td>
-    <td>0.831007 ms</td>
-    <td>When multiple threads are performing queries concurrently, the payload on the request is huge; thus, it slows down the average query time, and other measurements. However, connection pooling and use of preparedstatements allows query processing to run faster than case 4 and 5.</td>
+    <td>Case 2: HTTP/10 threads without connection pooling</td>
+    <td><img src="pic2.png" alt="pic2" style="width:304px;height:228px;"></td>
+    <td>22</td>
+    <td>66200321.4715</td>
+    <td>10094569.6021</td>
+    <td>10 threads without pooling, basically cost more than case1 with pooling. Since pooling utilize connections in a more efficient way</td>
   </tr>
   <tr>
-    <td>Case 3: HTTPS/10 threads</td>
-    <td><img src="jmeter/graphs/graph_3.png" alt="Graph Results Screenshot Case 3" style="width:304px;height:228px;"></td>
-    <td>241 ms</td>
-    <td>0.728700 ms</td>
-    <td>0.712087 ms</td>
-    <td>Using HTTPS increases the average query time, because there's an overhead in SSL handshaking and encryption process.</td>
+    <td>Case 3: HTTP/1 threads</td>
+    <td><img src="pic3.png" alt="pic3" style="width:304px;height:228px;"></td>
+    <td>5</td>
+    <td>643274.975794</td>
+    <td>579360.128089</td>
+    <td>single thread didn't cost much</td>
   </tr>
   <tr>
-    <td>Case 4: HTTP/10 threads/No connection pooling</td>
-    <td><img src="jmeter/graphs/graph_4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
-    <td>174 ms</td>
-    <td>0.929106 ms</td>
-    <td>0.900128 ms</td>
-    <td>Processing queries with multiple threads concurrently increases the average time for all three measurements as tested in Case 2. Doing it without connection pooling only makes it worse; compared to case 2, all three measurements are increased.</td>
-   
+    <td>Case 4: HTTP/10 threads</td>
+    <td><img src="pic4.png" alt="pic4" style="width:304px;height:228px;"></td>
+    <td>6</td>
+    <td>2002991.01802</td>
+    <td>1893446.9094</td>
+    <td>10 threads cost more than case 3 for single thread</td>
   </tr>
   <tr>
-    <td>Case 5: HTTP/10 threads/No prepared statements</td>
-    <td><img src="jmeter/graphs/graph_5.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
-    <td>163 ms</td>
-    <td>0.931903 ms</td>
-    <td>0.954210 ms</td>
-    <td>Without Prepared Statements, the average query time is about the same as case 4. However, the average JDBC processing time increases.</td>
+    <td>Case 5: HTTPS/10 threads</td>
+    <td><img src="pic5.png" alt="pic5" style="width:304px;height:228px;"></td>
+    <td>7</td>
+    <td>1955676.87972</td>
+    <td>1858233.89724</td>
+    <td>basically the same with http test</td>
   </tr>
 
 </table> 
@@ -72,42 +70,42 @@ td {
   <tr style="font-weight:bold; background-color: orange">
     <td width="300px">Scaled version cases</td>
     <td>Graph Results Screenshot</td>
-    <td>Average Query Time(ms)</td>
-    <td>Average Search Servlet Time(ms)</td>
-    <td>Average JDBC Time(ms)</td>
+    <td>Average Query Time(ms/From Jmeter)</td>
+    <td>Average Search Servlet Time(ns)</td>
+    <td>Average JDBC Time(ns)</td>
     <td>Analysis</td>
   </tr>
   <tr>
-    <td>Case 1: HTTP/1 thread</td>
-    <td><img src="jmeter/graphs/sgraph_1.png" alt="Graph Results Screenshot Case 1" style="width:304px;height:228px;"></td>
-    <td>39 ms</td>
-    <td>0.562316 ms</td>
-    <td>0.547729 ms</td>
-    <td>Processing queries with only 1 thread doesn't result in much difference between scaled and unscaled instances.</td>
+    <td>Case 1: HTTP/10 threads/No connection pooling</td>
+    <td><img src="pic6.png" alt="pic6" style="width:304px;height:228px;"></td>
+    <td>15</td>
+    <td>43337452.69</td>
+    <td>5984171.71</td>
+    <td>10 threads without pooling, cost is really high</td>
   </tr>
   <tr>
-    <td>Case 2: HTTP/10 threads</td>
-    <td><img src="jmeter/graphs/sgraph_2.png" alt="Graph Results Screenshot Case 2" style="width:304px;height:228px;"></td>
-    <td>43 ms</td>
-    <td>0.672130 ms</td>
-    <td>0.651281 ms</td>
-    <td>The throughput is much higher with scaled version. As displayed in the graphs, the throughput for this case is 2706 queries/min without scaling, and 13467 queries/min with scaling. The average querey processing time is reduced dramatically as well.</td>
+    <td>Case 2: HTTP/10 threads/No prepared statements</td>
+    <td><img src="pic7.png" alt="pic7" style="width:304px;height:228px;"></td>
+    <td>7</td>
+    <td>1209950.591</td>
+    <td>1109379.154</td>
+    <td>10 threads without prepared statement,but better with pooling </td>
   </tr>
   <tr>
-    <td>Case 3: HTTP/10 threads/No prepared statements</td>
-    <td><img src="jmeter/graphs/sgraph_3.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
-    <td>49 ms</td>
-    <td>0.791993 ms</td>
-    <td>0.845211 ms</td>
-    <td>As per usual without prepared statements, time spent on JDBC execution is longer than other cases. The average query processing time is increased slightly. Throughput is higher compared to the unscaled instance's case 3. </td>
+    <td>Case 3: HTTP/1 thread</td>
+    <td><img src="pic8.png" alt="pic8" style="width:304px;height:228px;"></td>
+    <td>7</td>
+    <td>1175813.981</td>
+    <td>1028321.477</td>
+    <td>single thread case</td>
   </tr>
   <tr>
-    <td>Case 4: HTTP/10 threads/No connection pooling</td>
-    <td><img src="jmeter/graphs/sgraph_4.png" alt="Graph Results Screenshot Case 4" style="width:304px;height:228px;"></td>
-    <td>71 ms</td>
-    <td>0.929911 ms</td>
-    <td>0.931871 ms</td>
-    <td>The average query processing time increased compared to Case 2. However, it's still a lot lower compared to the unscaled version. The throughput is 6814 lower than case 2's throughput, but still much higher than the case 2 from the unscaled instance.</td>
+    <td>Case 4: HTTP/10 threads</td>
+    <td><img src="pic9.png" alt="pic9" style="width:304px;height:228px;"></td>
+    <td>7</td>
+    <td>1318209.603</td>
+    <td>1183246.089</td>
+    <td>with master and slave nodes, just slightly worse compared with single thread case</td>
   </tr>
 
 </table> 

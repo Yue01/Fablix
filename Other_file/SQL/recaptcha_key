@@ -1,0 +1,12 @@
+Site key
+Use this in the HTML code your site serves to users.
+6LcW-UYUAAAAAPrMpZzI_J4dOU7d0AC4yC7BgU2z
+Secret key
+Use this for communication between your site and Google. Be sure to keep it a secret.
+6LcW-UYUAAAAAAlDysNIk5z3scmYdJqz-cSpPw-n
+
+
+Paste this snippet before the closing </head> tag on your HTML template:
+<script src='https://www.google.com/recaptcha/api.js'></script>
+Paste this snippet at the end of the <form> where you want the reCAPTCHA widget to appear:
+<div class="g-recaptcha" data-sitekey="6LcW-UYUAAAAAPrMpZzI_J4dOU7d0AC4yC7BgU2z"></div>
